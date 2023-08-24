@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Project 4A WebDoc</title>
+        <link rel="icon" type="image/x-icon" href="css\assets\favicon-32x32.png">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="css\styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+      
+      <div class="cursor"></div>
+      <div class="cursor2"></div>
+        <div class="hero-text">
+            Documentation.
+        </div>
+
+        <div class="info">
+          <p class="info-paras para1">
+            This website serves as a documentation for the Encryption stack project.
+          </p>
+
+          <p class="info-paras para4"> 
+            The project contains following classes:
+            <div class="sub-container">
+                <p class="info-classes">  <a href="#aes"><span  id="work-page">aes_encryption </span> </a></p>
+            </div>
+
+            <div class="sub-container">
+                <p class="info-classes">  <a href="#rsa"><span  id="work-page">rsa_encryption.py </span> </a></p>
+            </div>
+
+            <div class="sub-container">
+              <p class="info-classes">  <a href="#en-util"><span  id="work-page">encryption_util.py </span> </a></p>
+          </div>
+          </p>
+
+          <div id="aes" >
+            
+            <p class="info-paras para4">aes_encryption.py</p>
+
+            <p class="info-functions">encrypt(self, plain_text, key, nonce)</p>
+            <p class="info-desc">
+              Encrypts the given plain_text using AES in CTR mode with a 256-bit key. <br> <br>
+              Args: <br>
+              Plain_text(str): The message to be encrypted <br>
+              Key(aes_key): The generated AES key used for encryption <br>
+              Nonce:  The generated arbitrary number that can be used just once in the cryptographic communication. <br> <br>
+
+              Returns: <br>
+              The encrypted message as a Base64-encoded string. <br>
+            </p>
+
+            <p class="info-functions">decrypt(self, ciphertext, key, nonce)</p>
+            <p class="info-desc">
+              Decrypts the given ciphertext using AES in CTR mode with a 256-bit key. <br> <br>
+              Args: <br>
+              Ciphertext: The encrypted string which is to be decrypted. <br>
+              Key(aes_key): The generated AES key used for encryption <br>
+              Nonce:  The generated arbitrary number that can be used just once in the cryptographic communication. <br> <br>
+
+              Returns: <br>
+              The decrypted message as a bytes object.
+
+
+            </p>
+
+          </div>
+
+          <div id="rsa" >
+            
+            <p class="info-paras para4">rsa_encryption.py</p>
+
+            <p class="info-functions">generate_key_pair(self, b=2048)</p>
+            <p class="info-desc">
+              Generate a pair of public and private keys for RSA encryption. <br> <br>
+
+              Args:  <br>
+              does not receive any explicit arguments. <br>
+              b: The default bit size used is 2048 <br> <br>
+
+                Returns: <br>
+                    A tuple containing the public key and the private key.</p>
+
+
+
+            <p class="info-functions">encrypt(self, message, public_key)</p>
+            <p class="info-desc">
+
+                Encrypt a message using RSA encryption with a public key.
+                <br> <br>
+                Args: <br> 
+                &ensp; message (str): The message to be encrypted. <br>
+                &ensp; public_key (rsa.PublicKey): The public key to be used for encryption.
+                <br> <br>
+                Returns: <br>
+                    The encrypted message as a Base64-encoded string.
+            </p>
+
+            <p class="info-functions">decrypt(self, encrypted_message, private_key)</p>
+            <p class="info-desc">
+
+                Decrypt a message using RSA encryption with a private key.
+                <br> <br>
+                Args: <br><br>
+                &ensp; encrypted_message (str): The encrypted message as a Base64-encoded string. <br>
+                &ensp; private_key (rsa.PrivateKey): The private key to be used for decryption.
+                <br>
+                Returns: <br><br>
+                &ensp; The signature as a Base64-encoded string.
+            </p>
+
+            <p class="info-functions">sign(self, message, private_key, sign='SHA-256')</p>
+            <p class="info-desc">
+
+                Sign a message using RSA encryption with a private key.
+                <br> <br>
+                Args: <br>
+                &ensp; message (str): The message to be signed. <br>
+                &ensp; private_key (rsa.PrivateKey): The private key to be used for signing. <br>
+                &ensp; sign (str): default rsa sign used is SHA-256
+                <br> <br>
+                Returns: <br>
+                    The signature as a Base64-encoded string.
+            </p>
+
+            <p class="info-functions">verify(self, message, signature, public_key)</p>
+            <p class="info-desc">
+
+                Verify a message's signature using RSA encryption with a public key.
+                <br> <br>
+                Args: <br>
+                &ensp; message (str): The message whose signature is to be verified. <br>
+                &ensp; signature (str): The signature to be verified as a Base64-encoded string. <br>
+                &ensp; public_key (rsa.PublicKey): The public key to be used for verification.
+                <br> <br>
+                
+                Returns: <br>
+                    True if the signature is valid, False otherwise.
+            </p>
+            
+          </div>
+          <div id="en-util" >
+            
+            <p class="info-paras para4">encryption_util.py</p>
+
+            <p class="info-functions"> __init__(self)</p>
+            <p class="info-desc">
+              Initializes the nonce and RSA keypair <br> <br>
+              Args: <br>
+              Does not receive any explicit arguments.
+              Returns: <br><br>
+              Does not return any value.
+
+            </p>
+
+            
+
+            <p class="info-functions">nonce(self)</p>
+            <p class="info-desc">Returns the nonce <br> <br>
+              Args: <br><br>
+              does not receive any explicit arguments.
+              Returns:<br><br>
+              Returns the nonce value.
+            </p>
+
+            <p class="info-functions">nonce(self, b=16)</p>
+            <p class="info-desc">
+              Sets the 16 bit nonce value generated <br><br>
+              Args:<br> 
+              bytes(int): number of bytes to generate, defaults to 16.<br><br>
+              Returns:<br>
+              Does not return anything.
+            </p>
+
+            <p class="info-functions">aes_key(self)</p>
+            <p class="info-desc">returns the aes_key. <br><br>
+              Args:<br>
+              does not receive any explicit arguments.<br><br>
+              Returns:<br>
+              Returns the  AES key.
+               </p>
+              
+            <p class="info-functions">aes_key(self , b=32)</p>
+            <p class="info-desc">
+              Sets the aes_key value. <br>
+              Args: <br><br>
+              bytes(int): number of bytes to generate, defaults to 32. <br><br>
+              Returns:<br>
+              Does not return anything.
+
+            </p>
+
+            <p class="info-functions">rsa_keypair(self)</p>
+            <p class="info-desc">returns the rsa_key. <br><br>
+              Args: <br>
+              does not receive any explicit arguments.<br><br>
+              Returns: <br>
+              Returns the  RSA key pair.
+              </p>
+
+            <p class="info-functions">rsa_keypair(self, b=2048)</p>
+            <p class="info-desc">Sets the RSA keypair <br><br>
+              Args: <br>
+              bytes(int): number of bytes to generate, defaults to 2048<br><br>
+
+              Returns:<br>
+              Does not return anything.
+            </p>
+
+              <p class="info-functions">aes_encrypt(self, clear_text, key_base64, nonce_bytes=16, from_base64=True, encoded_text=False)</p>
+              <p class="info-desc">Encrypts clear_text using the provided key_base64 <br> <br>
+                Args: <br>
+                clear_text(str): The text to encrypt <br>
+                key_base64(str): The key used for encryption, as a base64 encoded string <br>
+                nonce_bytes(int): the arbitrary number that is used just once in the cryptographic communication, defaults to 16. <br>
+                from_base64(bool): True if the key provided is base 64 encoded <br>
+                encoded_text(bool): True if the clear_text provided is base 64 encoded <br> <br>
+
+                Returns: <br>
+                Returns the AES (CTR mode) encrypted string
+
+              </p>
+
+              <p class="info-functions">aes_decrypt(self, encryptedText, selfEncryptionKey, from_base64=True)</p>
+              <p class="info-desc">Encrypts clear_text using the provided key_base64 <br> <br>
+                Args: <br>
+                encryptedText(str): The text to decrypt <br>
+                selfEncryptionKey(str): The key to use for decryption, as a base64 encoded string <br>
+                from_base64(bool): True if the key provides is base 64 encoded <br> <br>
+
+                Returns: <br> 
+                Returns the decrypted string as a plain text.
+
+              </p>
+
+              <p class="info-functions">generate_aes_key_base64(b=32)</p>
+              <p class="info-desc">
+                Generates a new AES key. <br><br>
+                Args: <br>
+                Does not take any explicit arguments. <br>
+                b(int): bit value, defaults to 32.<br>
+                Returns:<br><br>
+                The generated AES key as a base64 encoded string.
+
+              </p>
+
+              <p class="info-functions">decode_aes_key_base64(base64_encoded_key)</p>
+              <p class="info-desc">decodes a base64 encoded key. <br> <br>
+                Args: <br>
+                base64_encoded_key: The key which is to be decoded. <br><br>
+                returns: <br>
+                The decoded version of the key.
+                
+              </p>
+
+              <p class="info-functions">rsa_decrypt_from_base64(self, cipher_text, private_key_base64)</p>
+              <p class="info-desc">Decrypts the cipher text using RSA decryption with the given private key. <br> <br>
+
+                Args: <br>
+                cipher_text: The cipher text to be decrypted, encoded in base64.
+                private_key_base64: The private key to be used for decryption, encoded in base64. <br><br>
+
+                Returns: <br>
+                The decrypted plain text.
+
+              </p>
+
+              <p class="info-functions">rsa_encrypt_to_base64(self, clear_text, public_key_base64)</p>
+              <p class="info-desc">Encrypts the clear text using RSA encryption with the given public key. <br>
+
+                Args: <br>
+                clear_text(str): The clear text to be encrypted. <br>
+                public_key_base64: The public key to be used for encryption, encoded in base64.<br><br>
+                Returns: <br>
+                The encrypted cipher text, encoded in base64.
+
+              </p>
+
+              <p class="info-functions">sign_sha256_rsa(input_data, private_key)</p>
+              <p class="info-desc">Signs the input data using RSA-SHA256 signature with the given private key. <br><br>
+                Args: <br>
+                input_data: The input data to be signed.
+                private_key: The private key to be used for signing. <br><br>
+                Returns: <br>
+                The signed data, encoded in base64.
+                
+              </p>
+
+              <p class="info-functions">generate_rsa_key_pair(self, bytes=2048)</p>
+              <p class="info-desc">Generates a new RSA key pair. <br> <br>
+                Args: <br>
+                Does not receive any explicit arguments.
+                Bytes(int): The number of bits the RSA key pair is to be, defaults to 2048 <br> <br>
+                Returns: <br>
+                The generated RSA key pair, consisting of a public key and a private key.
+                 <br>
+              </p>
+
+              <p class="info-functions">public_key_from_base64(self)</p>
+              <p class="info-desc">Returns the public key of the RSA key pair used by the utility, encoded in base64. <br> <br>
+                Args: <br>
+                Does not receive any explicit arguments <br><br>
+                Returns:  <br>
+                The public key, encoded in base64.
+                
+              </p>
+
+              <p class="info-functions">private_key_from_base64(self)</p>
+              <p class="info-desc"> Returns the private key of the RSA key pair used by the utility, encoded in base64. <br><br>
+                Args: <br>
+                Does not receive any explicit arguments. <br><br>
+                Returns: <br>
+                The private key, encoded in base64.
+                
+              </p>
+          </div>
+          <div id="Encryption" >
+            
+            <p class="info-paras para4">Encryption.py</p>
+
+            <p class="info-functions">abstractmethod encrypt()</p>
+            <p class="info-desc">
+              Encrypts the given clear text string according to the algorithm implementation in child class and returns the encrypted text. <br> <br>
+              
+            </p>
+
+            <p class="info-functions">abstractmethod decrypt()</p>
+            <p class="info-desc">
+              Decrypts the given encrypted string according to the  algorithm implementation in child class and returns the clear text.<br> <br>
+            </p>
+
+          </div>
+        </div>
+
+        <div class="info">
+          <div id="Encryption" >
+            
+            <p class="info-paras para4">Easy to setup</p>
+
+            <p class="info-functions">
+              1) Clone the git repository <br> <br>
+              2) Python version >= 3.9 <br><br>
+              3) Pip install the following: <br>
+              &ensp; &ensp; i. cryptography <br>
+              &ensp; &ensp; ii. pycryptodome <br>
+              &ensp; &ensp; iii. rsa <br>
+              &ensp; &ensp; iv. base64 <br>
+              &ensp; &ensp; v. secrets<br>
+              &ensp; &ensp; vi. hashlib<br>
+              &ensp; &ensp; vii. Crypto.Cipher<br><br>
+              4)  Directly use the util ( You can also use the (xyz)_encryption.py classes directly to make your own new util -- See usage in the comments in the code) <br> <br>
+
+              Note: To understand the flow you can also refer to tests_proj/driver.py <br> <br>
+            </p>
+
+          </div>
+        </div>
+
+        <div class="info">
+          
+            
+            <p class="info-paras para4">Testing</p>
+
+            <p class="info-functions">
+              Functional, Unit and Negative tests can be found at tests_proj/main_test.py
+              
+            
+       
+              
+            </div>
+          
+          
+        </div>
+    </body>
+</html>
